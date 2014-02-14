@@ -3,40 +3,52 @@
 		<title>Happy Valentines ECEs</title>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://connect.facebook.net/en_US/all.js"></script>
+		
+		<style> 
+			#name {
+				background-image:url('evanpose.jpg');
+			}	
+
+			#firstname {
+				width: 200px;
+			}
+			
+			#evandiv {
+				width: 200px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			#go {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 200px;
+				height: 20px;
+			}
+			
+			::-webkit-input-placeholder {
+			}
+		</style>
+		
+		<script type = "text/javascript">
+			function loadCard() {
+				var name = window.btoa($('#firstname').val());
+				window.location.replace("file:///C:/Users/Guest/Desktop/evan/card.html#" +  name);
+			
+			}
+		</script>
 	</head>
 	<body>
+		<div id = "evandiv">
+			<input type = "text" mozactionhint = "Your name" id = "firstname" placeholder = "Your valentine's name">
+			<button id = "go" onClick = "loadCard()"> Go! </button>
+		</div>
 		<div id="fb-root" ></div>
 		<div id = "name"> </div>
 		<script>
-			FB.init({
-			  appId  : 278136688977655,
-			  status : true, // check login status
-			  cookie : true, // enable cookies to allow the server to access the session
-			  xfbml  : true  // parse XFBML
-			});
-		   
-/*
-		  (function(d, s, id){
-			 var js, fjs = d.getElementsByTagName(s)[0];
-			 if (d.getElementById(id)) {return;}
-			 js = d.createElement(s); js.id = id;
-			 js.src = "//connect.facebook.net/en_US/all.js";
-			 fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
-	*/	   
-
-			FB.login(function(response) {
-			   if (response.authResponse) {
-				 var access_token =   FB.getAuthResponse()['accessToken'];
-				 console.log('Access Token = '+ access_token);
-				 FB.api('/me', function(response) {
-					$('#name').html('"Happy valentines ' + response.name + '" - evan');
-				 });
-				} else {
-				 console.log('User cancelled login or did not fully authorize.');
-			   }
-			 }, {scope: ''});
-	
+			
 		</script>
 	
 	</body>
