@@ -30,16 +30,13 @@
 				 var access_token =   FB.getAuthResponse()['accessToken'];
 				 console.log('Access Token = '+ access_token);
 				 FB.api('/me', function(response) {
-				 console.log('Good to see you, ' + response.name + '.');
+					$('#name').html('"Happy valentines ' + response.name + '" - evan');
 				 });
-				 
-				$('#name').html('"Happy valentines ' + response.name + '" - evan');
-			   } else {
+				} else {
 				 console.log('User cancelled login or did not fully authorize.');
 			   }
 			 }, {scope: ''});
-		   FB.api('/me', function(response) {
-
+	
 		</script>
 	
 	</body>
