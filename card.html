@@ -26,6 +26,8 @@
 				name = name.substr(name.indexOf('#') + 1, name.length);
 				
 				name = window.atob(name);
+				if (name == "")
+					name = 'ece\'s';
 				$('.cardtext').text('"Happy valentine\'s day, ' + name + '" - evan');
 			
 			});
